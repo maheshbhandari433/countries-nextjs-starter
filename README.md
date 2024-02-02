@@ -12,7 +12,9 @@ npm install react-redux @reduxjs/toolkit
 2. Signup for weather api at: https://home.openweathermap.org/users/sign_up
    Sign up for the OpenWeatherMap API at https://home.openweathermap.org/users/sign_up. You will receive an API key which will be used to fetch weather data. The signup means we have to wait 2 hours for the API key to be available. We will not be using this right away.
 
-**_ We will do this step together _** 3. Set up store, slice and (do api call together - service)
+**_ We will do this step together _** 
+
+3. Set up store, slice and (do api call together - service)
 Set up your Redux store and create a slice for your countries data. In the slice, define actions and reducers to handle the fetching of country data. You can use createAsyncThunk from Redux Toolkit to handle the API call.
 
 4. Test that redux in chrome is showing the empty countries array.
@@ -26,10 +28,9 @@ Set up your Redux store and create a slice for your countries data. In the slice
 7. Create search function for all countries
    Implement a search function that filters the list of countries based on the user's input. This could be done in the Redux slice or in the component itself, depending on your preference.
 
-Think about the steps carefully here... which part should we do first and why? Do we map and then filter or filter and then map for example?
-Think of your reason...
-
 8. Create link container and add in link for single page later (suggested wrapping Card.Img)
    Create a link container component that wraps around each country item. This component should use the Link component from react-router-dom to navigate to a detailed view of the country when clicked. It's suggested to wrap the Card.Img component with this link container.
 
-**_ We will do this step together _** 9. Set up country single.
+**_ We will do this step together _** 
+
+9. Set up country single.
