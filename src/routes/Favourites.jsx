@@ -1,29 +1,52 @@
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useEffect } from "react";
-
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
+import { getFavouritesFromSource } from "../auth/firebase";
 import { initializeCountries } from "../store/countriesSlice";
+import { addFavourite, removeFavourite } from "../store/favouritesSlice";
 
 const Favourites = () => {
   const dispatch = useDispatch();
 
   const favourites = useSelector((state) => state.favourites.favourites);
+  let countriesList = useSelector((state) => state.countries.countries);
 
-  // TODO: Implement logic to retrieve favourites later.
+  if (favourites.length > 0) {
+    countriesList = countriesList.filter((country) =>
+      favourites.includes(country.name.common)
+    );
+  } else {
+    countriesList = [];
+  }
+
   useEffect(() => {
     dispatch(initializeCountries());
+    dispatch(getFavouritesFromSource());
   }, [dispatch]);
 
   return (
     <Container fluid>
       <Row xs={2} md={3} lg={4} className=" g-3">
-        {favourites.map((country) => (
+        {countriesList.map((country) => (
           <Col key={country.name.official} className="mt-5">
             <Card className="h-100">
+              {favourites.some(
+                (favourite) => favourite === country.name?.common
+              ) ? (
+                <FavoriteBorderIcon
+                  onClick={() => dispatch(removeFavourite(country.name.common))}
+                />
+              ) : (
+                <FavoriteIcon
+                  onClick={() => dispatch(addFavourite(country.name.common))}
+                />
+              )}
               <Card.Img
                 variant="top"
                 className="rounded h-50"

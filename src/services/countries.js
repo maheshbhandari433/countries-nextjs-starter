@@ -7,4 +7,6 @@ const getAll = async () => {
   return response.data;
 };
 
+/* getAll().then(data => console.log(data)); */
+
 export default { getAll };
