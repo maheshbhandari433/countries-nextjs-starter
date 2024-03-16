@@ -46,24 +46,25 @@ const Countries = () => {
 
   return (
     <Container fluid>
-      <Row>
+      <Row className="justify-content-center py-5">
         <Form.Control
-          style={{ width: "18rem" }}
+          style={{ width: "50%" }}
           type="search"
-          className="me-2 "
+          className="me-2"
           placeholder="Search for countries"
           aria-label="Search"
           onChange={(e) => setSearch(e.target.value)}
         />
       </Row>
-      <Row xs={2} md={3} lg={4} className=" g-3">
+      
+      <Row xs={2} md={3} lg={4} className="mx-5">
         {countriesList
           .filter((country) =>
             country.name.common.toLowerCase().includes(search.toLowerCase())
           )
-          .map((country) => (
+          .map((country, index) => (
             <Col className="mt-5" key={country.name.common}>
-              <Card className="h-100">
+              <Card className="h-100 country-card" style={{ backgroundColor: index % 2 === 0 ? "#e6f7ff" : "#c7e3ff" }}>
                 {favourites.some(
                   (favourite) => favourite === country.name?.common
                 ) ? (
@@ -74,12 +75,14 @@ const Countries = () => {
                   />
                 ) : (
                   <FavoriteIcon
-                    onClick={() => dispatch(addFavourite(country.name.common))}
-                  />
+                    onClick={() =>
+                      dispatch(addFavourite(country.name.common))}
+                  /> 
                 )}
                 <Link
                   to={`/countries/${country.name.common}`}
                   state={{ country: country }}
+                  className="card-link"
                 >
                   <Card.Img
                     variant="top"
@@ -97,6 +100,7 @@ const Countries = () => {
                   <Card.Subtitle className="mb-5 text-muted">
                     {country.name.official}
                   </Card.Subtitle>
+                  
                   <ListGroup
                     variant="flush"
                     className="flex-grow-1 justify-content-end"
