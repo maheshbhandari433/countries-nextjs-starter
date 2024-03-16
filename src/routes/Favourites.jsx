@@ -32,10 +32,10 @@ const Favourites = () => {
 
   return (
     <Container fluid>
-      <Row xs={2} md={3} lg={4} className=" g-3">
-        {countriesList.map((country) => (
+      <Row xs={2} md={3} lg={4} className="mx-5" style={{ marginTop: '7rem' }}>
+        {countriesList.map((country, index) => (
           <Col key={country.name.official} className="mt-5">
-            <Card className="h-100">
+            <Card className="h-100 country-card" style={{ backgroundColor: index % 2 === 0 ? "#b3e6ff" : "#66b3ff" }}>
               {favourites.some(
                 (favourite) => favourite === country.name?.common
               ) ? (

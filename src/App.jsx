@@ -13,6 +13,7 @@ import Login from "./routes/Login";
 import Register from "./routes/Register";
 import Root from "./routes/Root";
 import store from "./store/store";
+
 const theme = createTheme({
   palette: {
     primary: {
