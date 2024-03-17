@@ -100,9 +100,6 @@ const Home = () => {
 
       {showMap && capital && (
         <Container className={styles.root}>
-          <Typography variant="h4" className={styles.title}>
-            Country Map
-          </Typography>
           <CountryMap country={country} />
         </Container>
       )}
