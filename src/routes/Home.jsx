@@ -1,8 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
-import { Container, Typography, Button, TextField, Grid, CircularProgress, Link } from "@mui/material";
+import { Container, Typography, Button, TextField, Grid, CircularProgress } from "@mui/material";
 import styles from './Home.module.css';
 import { CountryMap } from "../components/CountryMap";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -10,7 +11,7 @@ const Home = () => {
   const [capital, setCapital] = useState("");
   const [error, setError] = useState(null);
   const [showMap, setShowMap] = useState(false);
-  const [country, setCountry] = useState(null);
+  const [country, setCountry] = useState({});
 
 
   const handleInputChange = (event) => {
