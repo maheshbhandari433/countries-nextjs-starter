@@ -15,6 +15,8 @@ const Home = () => {
 
   const handleInputChange = (event) => {
     setCountryName(event.target.value);
+    setCapital("");
+    setShowMap(false);
   };
 
   const handleFormSubmit = async (event) => {
