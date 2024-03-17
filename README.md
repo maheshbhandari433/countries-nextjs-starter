@@ -60,7 +60,7 @@ The application will be running on [http://localhost:5173](http://localhost:5173
 
 ## Live URL
 
-Visit the live version of the application at: [https://your-live-url.com](https://your-live-url.com)
+Visit the live version of the application at: [https://count-ries.netlify.app/](https://count-ries.netlify.app/)
 
 ## Contributing
 
