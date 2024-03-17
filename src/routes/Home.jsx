@@ -23,6 +23,7 @@ const Home = () => {
     event.preventDefault();
     setLoading(true);
     setError(null);
+    setCountryName("");
 
     try {
       const response = await axios.get(
@@ -91,7 +92,7 @@ const Home = () => {
         {capital && (
           <div>
             <Typography variant="h5" className={styles.title}>
-              Capital of {countryName} is {capital}
+              Capital of {country.name.common} is {capital}
             </Typography>
             <Button variant="contained" color="primary" onClick={handleShowMap}>
               Show Map
