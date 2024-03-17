@@ -14,6 +14,8 @@ const Header = () => {
       getNameOfUser(user).then((name) => {
         setName(name);
       });
+    } else {
+      setName(null);
     }
   }, [user]);
 
